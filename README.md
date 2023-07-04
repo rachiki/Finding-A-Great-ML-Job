@@ -10,4 +10,5 @@ Sidestory - Why I switched from Windows to Linux: When I started competing in De
 I also think about which Certificates to include in the CV and how good of a signal workera or other skill testing platforms offer to recruiters, with googling + GPT4 it would be incredibly easy to fake high proficiency there.
 I decided on uploading all my master thesis material, as I'm pretty happy with how it turned out. It is pretty well organized researched and has some novel insights. I also recorded my Master presentation and uploaded it here, I think that might be a good way to show presentation skills, what my thesis was about and to show spoken English proficiency. 
 I found tons of projects I did that I want to do small writeups off. I build a mining PC in 2019 for Monero, participated in a student consultancy, where I build a chatbot for a large German company, participated in the Rohde & Schwarz competition for identifying empty pill blisters in CT scans. I also have some small code snippets I want to upload, like a scraper for E-Books.
+I registered in Alumni Networks for TU Ilmenau and TU München, the Universities I did my Bachelor and Master at.
 
