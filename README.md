@@ -13,5 +13,5 @@ I found tons of projects I did that I want to do small writeups off. I build a m
 I registered in Alumni Networks for TU Ilmenau and TU München, the Universities I did my Bachelor and Master at. The TU München one is especially interesting because it offers a job forum. 
 I found some cool jobs in biotech at the TUM job board, I have a lot of experience in this area already and want to deepen that by doing two more Kaggle competitions: https://www.kaggle.com/competitions/hubmap-hacking-the-human-vasculature/discussion/418009 and https://www.kaggle.com/competitions/cafa-5-protein-function-prediction/code. For the second competition one guy that asked me if we can cooperate on it asked me for resources on protein embeddings. I looked a bit and send it over. I was also at an AI alignment talk of Marvin van Hagen and had an idea for a new NLP architecture that I will need to make a write-up on at some time. 
 
-July 5th: I looked through other old projects but did not find any more that I want to add.
+July 5th: I looked through other old projects but did not find any more that I want to add. I started rewriting my master presentation for a broader audience but only got halfway through, before switching to non-job related work (like taxes).
 
