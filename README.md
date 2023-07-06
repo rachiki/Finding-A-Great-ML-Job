@@ -15,5 +15,5 @@ I found some cool jobs in biotech at the TUM job board, I have a lot of experien
 
 July 5th: I looked through other old projects but did not find any more that I want to add. I started rewriting my master presentation for a broader audience but only got halfway through, before switching to non-job related work (like taxes).
 
-July 6th: Finished rewriting the presentation.
+July 6th: Finished rewriting the presentation. I read this article http://mindingourway.com/obvious-advice/ and used the advice. I wrote down a list of people I'll schedule meetings with over the next week to get their advice. 
 
