@@ -17,3 +17,5 @@ July 5th: I looked through other old projects but did not find any more that I w
 
 July 6th: Finished rewriting the presentation. I read this article http://mindingourway.com/obvious-advice/ and used the advice. I wrote down a list of people I'll schedule meetings with over the next week to get their advice. I had a long talk with a friend who recently read a book about career advice: 'So Good They Can't Ignore You', the main part I took away from that topic is that I should focus a lot on building career capital, so skill building in the early parts of my career. He also mentioned that it's a useful exercise to look for people in the job, ask them for feedback and also look for the typical daily schedule of the jobs. We also talked about the moral basis of different jobs as I want to have a positive impact and talked about 80.000 hours. I remembered that they offer personalized career advice. I read 1/4 of the book 'So Good They Can't Ignore You' my friend recommended.
 
+July 7th: Pause in job search, worked on Kaggle (HubMAP - Hacking the Human Vasculature).
+
