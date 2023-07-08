@@ -19,3 +19,5 @@ July 6th: Finished rewriting the presentation. I read this article http://mindin
 
 July 7th: Pause in job search, worked on Kaggle (HubMAP - Hacking the Human Vasculature).
 
+July 8th: Worked on CV/resume, I've read that it's two different things, the CV being a comprehensive list of stations in your career path, education, skills and achievements and a resume being more tailor made to the job/company you apply to and shorter. The CV is pretty common in Germany where I currently live, so I do that one first and then cut it down depending on the job I apply to.
+I noticed that apparently you need stuff like SQL/pandas a lot for interacting with data, companies have so I spend a bit over 2 hours doing a basic SQL tutorial https://sqlbolt.com/lesson/introduction that I think was pretty good.
