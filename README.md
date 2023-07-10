@@ -24,4 +24,4 @@ I noticed that apparently you need stuff like SQL/pandas a lot for interacting w
 
 July 9th, Sunday: Relaxed today.
 
-July 10th, Monday: 
+July 10th, Monday: Finished CV, uploaded on Hired.
