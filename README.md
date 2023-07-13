@@ -30,3 +30,15 @@ July 11th, Tuesday: Finished advent of code cleanup, selected the rest I want to
 
 July 12th, Wednesday: Finished the last 1/2 of the book 'So Good They Can't Ignore You'. I also recommend it. 
 A short summary would be that the popular passion mindset, where people think there's the one true dream job/calling for them and they just need to find it, is wrong. Almost noone knows what they really want to do from the start and even if they did, chances are lots of people have the same passion and it's hard to compete. The author Cal Newport suggests following the craftsman mindset instead. Here you focus on creating things of value for others. You can first start somewhere and it does not matter too much if that position is already a super good fit. While working you get better, buildilng career capital, especially by employing deliberate practice (going out of your comfort zone and confronting difficult tasks). This career capital can be used to acquire nice career features like more control over what you do or following a mission (notice that he does not necessarily mean by negotiating with a current employer, you could also go freelance if you're competent enough and you have a good reputation). 
+
+July 13th, Thursday: Work on resume continues. Tips I saw are: 
+One page only, 
+skip objective, 
+short bullets, 
+accomplishment oriented (also quantify!), 
+top projects list 3-5 (can be academic), 
+additional experience etc should be relevant,
+single vs multi column is hard to decide,
+skills after education (?),
+Also good for examples: https://www.resumegiants.com/examples/computer-science-resume/
+
