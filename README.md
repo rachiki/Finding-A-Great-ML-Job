@@ -40,5 +40,5 @@ top projects list 3-5 (can be academic),
 additional experience etc should be relevant,
 single vs multi column is hard to decide,
 skills after education (?),
-Also good for examples: https://www.resumegiants.com/examples/computer-science-resume/
+Also good for examples: https://www.resumegiants.com/examples/computer-science-resume/, this template was mentioned often https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs
 
