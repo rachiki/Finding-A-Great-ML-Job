@@ -42,3 +42,5 @@ single vs multi column is hard to decide,
 skills after education (?),
 Also good for examples: https://www.resumegiants.com/examples/computer-science-resume/, this template was mentioned often https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs
 To-Do: Bold, links, polishing code and cv, pic away TOEFL.
+
+July 14th, Friday: Finished resume
