@@ -47,4 +47,6 @@ July 14th, Friday: Finished resume, send it to friends for feedback.
 
 July 15-16th, Weekend: Enjoyed a festival and my parents visiting.
 
-July 17th, Monday: Hyperlinked everything in my resume I could. Updated LinkedIn. Schedule 80.000 hours
+July 17th, Monday: Hyperlinked half my resume. Updated LinkedIn. Uploaded and finished AOC2021. Added kaggle bronze notebook.
+
+Schedule 80.000 hours.
