@@ -47,4 +47,4 @@ July 14th, Friday: Finished resume, send it to friends for feedback.
 
 July 15-16th, Weekend: Enjoyed a festival and my parents visiting.
 
-July 17th, Monday: Hyperlinked everything in my resume I could. Updated LinkedIn
+July 17th, Monday: Hyperlinked everything in my resume I could. Updated LinkedIn. Schedule 80.000 hours
