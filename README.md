@@ -47,6 +47,7 @@ July 14th, Friday: Finished resume, send it to friends for feedback.
 
 July 15-16th, Weekend: Enjoyed a festival and my parents visiting.
 
-July 17th, Monday: Hyperlinked half my resume. Updated LinkedIn. Uploaded and finished AOC2021. Added kaggle bronze notebook.
+July 17th, Monday: Hyperlinked half my resume. Updated LinkedIn. Uploaded and finished AOC2021. Added kaggle bronze notebook to good code.
 
+July 18th, Tuesday: Uploaded NLP project for abstractive summarization.
 Schedule 80.000 hours.
