@@ -1,0 +1,410 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+% In particular, the hyperref package requires pdfLaTeX in order to break URLs across lines.
+
+\documentclass[11pt]{article}
+
+% Style and Formatting for Camera-Ready PDF
+\usepackage{naacl2021}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+
+% This is not strictly necessary, and may be commented out,
+% but it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+
+\usepackage[]{algorithm2e}
+\usepackage{amsmath}
+
+\usepackage{multirow}
+
+% added to handle images
+\usepackage{graphicx}
+
+% If the title and author information does not fit in the area allocated, uncomment the following
+%
+%\setlength\titlebox{<dim>}
+%
+% and set <dim> to something 5cm or larger.
+
+\title{Praktikum Final Report: Abstractive Summarization}
+
+% Author information can be set in various styles:
+% For several authors from the same institution:
+% \author{Author 1 \and ... \and Author n \\
+%         Address line \\ ... \\ Address line}
+% if the names do not fit well on one line use
+%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
+% For authors from different institutions:
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \And  ... \And
+%         Author n \\ Address line \\ ... \\ Address line}
+% To start a seperate ``row'' of authors use \AND, as in
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \AND
+%         Author 2 \\ Address line \\ ... \\ Address line \And
+%         Author 3 \\ Address line \\ ... \\ Address line}
+
+\author{Diego Miguel Lozano  \\
+  Technical University Munich \\
+  \href{mailto:diego.miguel@tum.de}{\texttt{diego.miguel@tum.de}} \\ \\\And
+  Harun Eren \\
+  Technical University Munich \\
+  \href{mailto:harun.eren@tum.de}{\texttt{harun.eren@tum.de}} \\ \\\And
+  Ralf Kinkel \\
+  Technical University Munich\\
+  \href{mailto:ralf.kinkel@tum.com}{\texttt{ralf.kinkel@tum.com}} \\} 
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Creating good abstractive summaries remains a challenging problem in natural language processing. Part of the challenge is that evaluation of summaries is a hard problem in itself and metrics currently in use are insufficient to accurately reflect the quality of summaries. This makes navigating the space of potential architectures and hyperparameters for a summarization model even more difficult than usual in machine learning. Our contribution is a new approach for evaluating summaries that we hope will lead to better evaluation and consequentially faster exploration of such models. 
+We additionally used our evaluation metric as a loss to train a summary generator in a novel GAN approach. This second research direction did not yield promising results, we hope that other researchers might either solve potential problems we overlooked or avoid the approach to avert fruitless endeavors. 
+\end{abstract}
+
+%------------------------------------------------------------------------------------------%
+
+\section{Introduction}
+Humanity puts out exponentially more data each year. To handle this information overload it is critical to improve how we select information to consume, and condense information by extracting the most important parts. While search algorithms like those used in internet browsers greatly help in information selection, automatic information condensation is much less advanced. Creating concise summaries would help consuming information in textual form more efficiently. 
+
+You can separate between two types of summaries. Extractive summaries consist of subsets of sentences from the original text, while in abstractive summaries the meaning of the text is extracted first and then a summary is generated from an abstract representation \cite{lin2019abstractive}. Therefore abstractive summarization is the generalization of extractive summarization. While abstractive summarization is often more challenging than extractive summarization it better approximates human summaries. In recent years the endeavor of automating summarization has gained more traction as neural networks revolutionized natural language processing. This also enabled a shift from extractive summaries to abstractive summaries \cite{lin2019abstractive}.
+
+You can either evaluate summaries manually or automatically. Manual evaluations by human judges reflect our goal of creating summaries for humans perfectly but suffers from scalability problems and also makes comparisons between methods harder as different groups of judges vary in how they rate and what they value in a summary. Automatic summarization suffers from the fact that it's very hard to encapsulate what constitutes a good summary.
+As a consequence, the currently used automatic metrics suffer from a plethora of different problems \cite{fabbri2021summeval}. 
+
+In this work we propose a new evaluation tool for abstractive summaries, that has the potential to better reflect the merit of summaries than the current metrics. We retrained a model for sentence similarity to assign similar embeddings to matching texts and summaries, so that a similarity score can be used for evaluation\footnote{One could question how training a discriminator as evaluation tool could be useful, as it should not be able to surpass summary generators with similar architecture and train data in natural language understanding. We argue that this approach could still be useful, as evaluation is much more tractable than generation. Meaning it should be easier to create strong discriminators than strong generators. The discriminator can then be used for evaluation to serve as a stepping stone for better summary generators.}.
+Afterwards we tried to use this similarity score as a loss function to train a summary generator in a novel generative adversarial network (GAN) variant, but did not succeed in creating a good generator this way. Reasons for this are discussed in Section \ref{Discussion}. 
+
+Our code base can be found \href{https://gitlab.lrz.de/practical-courses/nlp-lab-course-ss22/wikipedia-abstractive-summarization}{here}.
+
+%------------------------------------------------------------------------------------------%
+
+\section{Chronology}\label{section:chronology}
+
+-wip-
+There are advancements in NLP field. Mostly using transformers and lstms. Mostly utilizing transfer learning and transformers. Existing transfer learning can be divided into autoencoding models (e.g., BERT), autoregressive models, and encoder-decoder models (e.g., T5). Encoder-decoder models are widely used for abstractive summarization since these types of models perform better in sequence-to-sequence problems \cite{glm}. And we have chosen our task as improving abstractive summarization problem for Wikipedia articles.
+-wip-
+
+We have checked the performances of the available state-of-art applications (e.g OpenAI-GPT3, Google-T5) qualitatively with Wikipedia article inputs  \cite{gpt3,t5}. These transformers-based models are also examples of transfer learning in NLP and have the most impressive results. Therefore, we have decided to utilize pre-trained models in our architecture and start with smaller models for developing our design in a stable manner.
+
+The generated summary can have words or phrases that do not exist in the original text, therefore summarization can be framed as a generative process. For a generative model for text, we should know how to model the unknown distribution of the data $p^*_{\theta}(x)$, and how to update model parameters {$\theta$}. In a summarization task, the summary text sequence $ x = [x_1, .. , x_T]$ given the original text $x_{orig}$ fits into the autoregressive modelling: 
+
+\begin{equation}
+p_{\theta}(x| x_{orig}) = \prod_{t=1}^{T} p_{\theta}(x_t | x_1 ... x_{t-1}, x_{orig})
+\end{equation}
+
+And a summary $[\tilde{x_1}, .., \tilde{x_T}]$ can be generated by sampling which is an iterative process in autoregressive models \cite{languagegan}. The model selection depends on the task and the data. Because the model predicts outputs based on previous outputs, recurrent neural networks and transformers can be used because they are widely used in sequential generative machine learning problems. -- cite
+
+Generative adversarial networks (GANs) were also proposed for generative tasks \cite{goodfellow2014generative} in machine learning. We have considered using GAN approach for our summarization task. The generator model can generate summaries, and the discriminator model can be used to distinguish an original summary and a generated summary. GANs are mainly used in the computer vision field and proved to be successful with continuous data such as images, however, it is more challenging to deploy for NLP tasks \cite{deepadv4nlp}. One of the problems arises from the discreteness of inputs and outputs in NLP tasks. In text generation models, iterative sampling is used by various strategies:  - cite greedy search, beam search, sampling techniques from https://huggingface.co/blog/how-to-generate - wip: explain differentiability problem more in detail. 
+
+There are various mathematical approaches to tackle differentiability problems regarding sampling. The very well known reparametrizaExplain and cite Gumbal-Softmax trick, etc.
+
+Another approach is to combine GAN architecture with reinforcement learning. In one of these attempts, bi-directional LSTMs are used for predicting next token probabilities as a generator, a one-dimensional multi-layered CNN is used for binary text classification as a discriminator, and the reward policy of RL mechanism is updated by the discriminator and also impacts the loss of the generator \cite{ganforas}. There is a similar but more complex attempt using attention mechanism and encoder-decoder architecture while combining GAN and RL \cite{sgan4as}.
+
+
+- Idea: Using top32 tokens to the discriminator and having NLL loss. Discussion about top P and top K. \newline \newline
+
+- Discussion: metrics and human feedback differences in other studies. \newline \newline
+
+- Idea: using discriminator as metrics for other
+- We decided to pretrain the discriminator by contrastive model adapting from CLIP by OpenAI. Because in gan pipeline, it can be necessary to pretrain the discriminator before. \newline \newline
+- Refer to the figures to present final design of our model \newline \newline
+
+For representation of texts 
+
+- Why we chose certain models, universal tokenization problem impacted our model selection, and different versions
+
+The quality and quantity of train data are crucial factors for the performance of machine learning models. We have chosen the Extreme Summarization (XSum) dataset, Wikipedia Summarization Dataset (WSD), and CNN-Daily Mail dataset as candidates for training and evaluating our model \cite{xsum, wsd, nallapati2016abstractive}. We implemented data processing and data loading for these datasets, analyzed them, and later decided to continue working only with the CNN-Daily Mail dataset. The datasets, their analysis, and selection process are explained in detail in \nameref{subsection: dataset} section. 
+
+%------------------------------------------------------------------------------------------%
+
+\section{Technical aspects}
+
+This section aims to give a deeper insight into the model architectures and training paradigms used.
+
+\subsection{Discriminator initial training}
+
+The general approach we took for training the discriminator is choosing one model $D$ that outputs one embedding vector for each text or summary passed to it, the embedding vector is then L2-normalized. Those normalized embeddings can be multiplied and added to receive a similarity score in range $1 \geq s \geq 1$. We then train the discriminator in a way that matching original texts and summaries have a high similarity score and mismatches have low similarity scores. 
+
+\subsubsection{Discriminator training paradigm}
+
+We used the CNN-Dailymail dataset \cite{nallapati2016abstractive} containing text-summary pairs for contrastive training in a similar approach to the one used in \cite{radford2021learning}. 
+
+Here a batch with size $b$ of text-summary pairs is passed through the discriminator and a vector of embeddings with $shape=(b,e)$ is formed for the original texts and the summaries each. Those vectors are multiplied and summed across the embedding axis so that a similarity matrix of $shape=b,b$ is formed. A symmetrical cross-entropy loss is then applied with $label=1$ for matching pairs that are at the diagonal of the similarity matrix. An illustration of the process is shown in Figure \ref{fig:disc_c}.
+
+
+\begin{figure}[h]
+\centering
+\begin{minipage}[t]{1\linewidth}
+\includegraphics[width=1\linewidth]{disc-contrastive.PNG}
+\end{minipage}
+\centering
+\caption{Contrastive training of the discriminator: Batch of texts and a corresponding batch of summaries are passed through the discriminator to get embeddings. The embeddings are L2-normalized, then multiplied and summed across embedding axis to gain a similarity matrix. The diagonal is shown in light blue representing matching texts and summaries. Figure is adapted from \cite{radford2021learning}.}
+\label{fig:disc_c}
+\end{figure} 
+
+Contrastive training is usually used with GPU clusters enabling large batch sizes to fit in the GPU memory. This way there is a high likelihood for more similar non-matching texts and summaries in the same batch, which is more challenging for the discriminator. The increased difficulty translates to a better discriminator after training \cite{chen2020simple}. Because our computational resources are more limited, our batchsizes were always in the single digits. To still provide an appropriate challenge for the discriminator, we extended our paradigm with data augmentation to include more difficult mismatches. 
+
+\subsubsection{Discriminator data augmentation}
+
+The data augmentation aims to create additional non-matching summaries using similar words and phrases as the original summary and text. We used 3 different augmentations to create these. 
+
+\begin{itemize}
+    \item Random: Create a new summary by iterating through words in the original text and adding them to the new summary based on chance = length(text)/length(summary).
+    \item Shuffle: Shuffle the original summary randomly.
+    \item Replace: Create a new summary by replacing every third word in the original summary with a random word from the original text.
+\end{itemize}
+The new summaries are added to the matrix changing it to $shape = (b,b+3)$. In this setting we also change the symmetrical cross entropy loss to a regular cross entropy loss.
+
+
+\subsubsection{Discriminator models}
+
+We used 3 different model architectures for the discriminator, we started with a pre-trained model for each architecture. 
+
+We first chose a model for sentence similarity as the most similar task we could find, specifically 
+all-mpnet-base-v2 \cite{mpnet2}. While the model yielded good results, two problems presented itself. Firstly it is pretty big which lead us to only being able to train with $batchsize = 3$ without data augmentation and $batchsize = 1$ with data augmentation, and also complicated generator training because of tokenizer mismatch between discriminator and generator. This mismatch could lead to tokens being generated not having a correspondence in the discriminator and is difficult to compensate. 
+
+We then switched to BART models for the discriminator to have matching tokenizers with the generator. We used BART-base \cite{lewis2019bart}  for the second discriminator model and used the encoder from DistilBART-xsum-9-6 \cite{shleifer2020pre} as our third discriminator model. All models were first trained without data augmentation. With data augmentation the GPU memory requirements increased a lot leading us to only train the smallest distilbart encoder based discriminator. The results can be seen in Section \ref{Results}.
+
+\subsection{GAN Pipeline}
+
+The idea of the pipeline is to iterate between training the summary generator ("the summarizer") with a fixed discriminator and training the discriminator with a fixed summarizer. In the first step the summarizer learns to output summaries the discriminator ranks highly and in the second step the discriminator learns to differentiate between generated summaries and groundtruth summaries and assign lower scores to the generated ones. The goal is to have a min-max game between the two models where both get better each iteration.
+The principle is based on \cite{goodfellow2014generative}.
+
+\subsubsection{Training of the Generator}
+
+The process of training the the summarizer is illustrated in Figure \ref{fig:gen_training}. The summarizer takes the original text and all previously generated tokens as input and outputs next token probabilities. When first run, the generated summary will only contain the BOS (Beginning of Sequence) token.
+Then, at each step, the similarity between the discriminator embeddings of the original text and the generated summary is used as a loss to train the generator. 
+
+As mentioned in \nameref{section:chronology}, this loss cannot be used directly, as the sampling process that is applied on the outputs of the generator, before being passed to the discriminator, is non-differentiable. We circumvent this problem by passing the discriminator a batch of possible next-token candidates, sampled with top-$k$, and letting it rank them according to the similarity of each of the $k$ embeddings from the resulting summaries with the embedding of the original text. With these rankings we can create a new objective for the summarizer output that is then used in a cross entropy loss, bypassing the non-differentiable sampling step. 
+
+The way the new objective is created is by reassigning the probability weight on the sampled tokens according to the similarity scores, while making the objective equal the summarizer output for all non-sampled tokens. This way a signal for change is only given for those tokens the discriminator could score.
+
+\begin{figure*}[h]
+\centering
+\includegraphics[width=0.95\linewidth]{Generator.PNG}
+\centering
+\caption{Overview of the generator training. At each step the discriminator receives the generated summary up to that step, as well as the list of top-$k$ next-token candidates. These tokens are then ranked according to the discriminator criteria. In order to improve efficiency, the generated summary is cached so only the evaluation of the candidate tokens has to be run multiple times.}
+\label{fig:gen_training}
+\end{figure*} 
+
+As base model we used \texttt{sshleifer/} \texttt{distilbart-xsum-9-6} \footnote{Huggingface model available at \href{https://huggingface.co/sshleifer/distilbart-xsum-9-6}{https://huggingface.co/} \\ \href{https://huggingface.co/sshleifer/distilbart-xsum-9-6}{sshleifer/distilbart-xsum-9-6}.}.
+
+\subsubsection{Discriminator training}
+
+Once the generator has been trained, we perform the last step in the GAN loop of training the discriminator. Here we keep the summarizer fixed and try to minimize the discriminator embedding similarity between the original text and the generated summary and maximize the similarity between the original text and the ground-truth summary. This way, the discriminator will get better at discerning between original and generated summaries. 
+
+Figure \ref{fig:gan_training} offers a visual representation of the process.
+
+\begin{figure}[h]
+\centering
+\begin{minipage}[t]{1\linewidth}
+\includegraphics[width=1\linewidth]{gan-training.jpeg}
+\end{minipage}
+\centering
+\caption{GAN Pipeline training overview.}
+\label{fig:gan_training}
+\end{figure} 
+
+\subsection{Dataset, Suggestions}\label{subsection: dataset}
+
+The quality and quantity of data are crucial for performance in machine learning models in NLP. This section aims to analyze the summarization datasets and our selection criteria.
+
+\subsubsection{Wikipedia Summarization Dataset, Suggestions}
+Our original goal was to improve the abstractive summarization of Wikipedia articles specifically and we wanted to use a dataset that has a similar distribution as Wikipedia articles. For that reason we decided to use the "Wikipedia Summarization Dataset"\footnote{Wikipedia Summarization Dataset is accessible by \href{https://github.com/mehwishfatimah/wsd}{this} open repository.}. It was originally developed for monolingual and EN-DE cross-lingual summarization. The dataset uses the "abstract" sections of Wikipedia articles as summaries and the rest of the articles as texts. 
+
+After analyzing the dataset in more detail we noticed that these abstracts are not good proxies for summaries as they often do not correspond to the text in a meaningful way. We use one example article from the dataset can illustrate the problem. The article about the mathematician \href{https://en.wikipedia.org/wiki/Paul_St%C3%A4ckel}{Paul Stäckel} has two sections: the abstract and his works. The abstract explains the mathematician's life and career and the other section is a list of names of his books and papers. In the dataset, the list of his papers and books is the original text, and his biography is the summary. Summary and original text are therefore almost completely unrelated. There are other examples, such as an article about a tool, where the abstract explains everything about the tool, and the rest of the article explains its applications. Because these types of data samples are no rare exceptions but widespread in the dataset, we decided to switch focus to other datasets.
+
+\subsubsection{XSum Dataset, Suggestions}
+The Extreme Summarization dataset is one of the biggest summarization datasets with 204045 text-summary samples\footnote{XSum dataset is accessible as HuggingFace \href{https://huggingface.co/datasets/xsum}{dataset}.}. It consists of BBC articles and their summaries. The length of texts and summaries appears to be inconsistent, especially for shorter texts. Because XSum and CNN/DailyMail are very similar, we decided to focus on the larger but more consistent CNN/DailyMail dataset.
+
+
+\subsubsection{CNN-Daily Mail Dataset, Suggestions}
+The CNN-DailyMail dataset has about 313000 samples of articles and human-written summaries from CNN and DailyMail newspapers\footnote{CNN-DailyMail dataset is accessible as HuggingFace \href{https://huggingface.co/datasets/cnn_dailymail}{dataset}.}. It has been one of the most important datasets for training and benchmarking summarization models in recent years. We utilized this dataset heavily in training and evaluation since it is big, turned out to be relatively consistent after some preliminary analysis and provides an opportunity to compare with other models.
+
+We preprocessed the dataset before training by removing samples from the dataset based on a minimum threshold of word counts and a model-dependent maximum threshold of token length. The word count removal is done to throw out some outliers like samples where the summaries are longer than the texts. The token length threshold is to avoid complications by cutoffs at maximum sequence length for the transformers we used. For example a text with $2000$ tokens could have much of its most relevant content in the second half and a perfect corresponding summary. A discriminator with max sequence length of $1024$ could only look at the first half of the text, with the summary referring to parts of the text the discriminator does not see. This way the discriminator would get very misleading training signals.
+
+\subsection{Dataset}\label{subsection: dataset}
+
+The quality and quantity of data are crucial for performance in machine learning models in NLP. This section aims to analyze the summarization datasets and our elimination criteria.
+
+\subsubsection{Wikipedia Summarization Dataset}
+Our main purpose was to improve the abstractive summarization of Wikipedia pages. Therefore we wanted to use a dataset that has a similar distribution as Wikipedia articles. The current Wikipedia summarization datasets take abstract sections as summaries and the rest of the articles as texts, and we have decided to work with Wikipedia Summarization Dataset\footnote{Wikipedia Summarization Dataset is accessible by \href{https://github.com/mehwishfatimah/wsd}{this} open repository.}. It was originally developed for monolingual and EN-DE cross-lingual summarization \cite{wsd}. However, we analyzed the dataset and decided that it is not appropriate to use abstracts as summaries of the rest of the articles. Let's take the Wikipedia article about \href{https://en.wikipedia.org/wiki/Paul_St%C3%A4ckel}{Paul Stäckel} as an example from our dataset. The article has two sections: the abstract and his works. The abstract explains the mathematician's life and career and the other section is a list of names of his books and papers. According to the dataset, the list of his papers and books is the original text, and his biography is the summary of this text. There are other examples, such as an article about a tool, where the abstract explains everything about the tool, and the rest of the article explains its applications. In fact, we have noticed there are many of these types of data samples contradicting the nature of our task. Therefore, we decided not to use this dataset, especially in training.
+
+\subsubsection{Extreme Summarization (XSum) Dataset}
+This dataset is one of the biggest summarization datasets with 204045 text-summary samples\footnote{XSum dataset is accessible as HuggingFace \href{https://huggingface.co/datasets/xsum}{dataset}.}. It consists of BBC articles and their summaries. The length of texts and summaries appears to be inconsistent, especially for the shorter texts. Therefore, we decided to use another large but more consistent dataset.
+
+
+\subsubsection{CNN-Daily Mail Dataset}
+This dataset has about 313000 samples from articles and human-written summaries from CNN and DailyMail newspapers\footnote{CNN-DailyMail dataset is accessible as HuggingFace \href{https://huggingface.co/datasets/cnn_dailymail}{dataset}.}. The large dataset has been the main dataset for training and benchmarking summarization models since it has published. We decided to use this dataset since it provides an opportunity to compare with other models and seems to be relatively consistent. We removed samples from the dataset based on a minimum threshold of word counts and a model-dependent maximum threshold of token size to have more stable and reasonable input samples during training.
+
+
+%------------------------------------------------------------------------------------------%
+
+\section{Results} \label{Results}
+
+Our results can be divided into two categories. On the one hand, we measured how well our discriminator performs as an evaluation metric for abstractive summaries. On the other hand, we also analyzed how well the GAN pipeline -- Discriminator + Generator 
+--, works as an abstractive summarizaton tool.
+
+\subsection{Discriminator} 
+
+We evaluated our discriminator on the CNN/Daily Mail Dataset and compared the results with several flavors of the ROUGE score, namely Rouge-1, Rouge-2 and Rouge-L. The table \ref{table:cnndmResults} collects the averaged results over 3,000 samples of the test split, as well as the standard deviation.
+
+\begin{table*}
+\centering
+\begin{tabular}{lccccccc}
+\hline
+\textbf{} & \textbf{MPNet v2} & \textbf{Bart base}  & \textbf{DB enc.} & \textbf{DB enc.+aug.} & \textbf{Rouge-1} & \textbf{Rouge-2} & \textbf{Rouge-L} \\
+\hline
+\textbf{Mean} & $0.93$ & $0.91$ & $0.87$ & $0.59$ & $0.87$ & $0.47$ & $0.63$ \\
+\textbf{Std. Dev.} & $0.07$ & $0.09$ & $0.08$ & $0.15$ & $0.08$ & $0.17$ & $0.13$ \\
+\hline
+\end{tabular}
+\caption{\label{table:cnndmResults}
+Averaged results over 3,000 individual evaluations on the CNN/Daily Mail dataset. ``DB enc.'' stands for ``Distilbart Encoder'', and ``aug.'' refers to using augmentation.
+}
+\end{table*}
+
+Furthermore, we also manually annotated a toy dataset (5 samples) with the goal of testing our evaluator in a more comprehensive way, by creating a series of summaries with emphasis on certain characteristics. First, we came up with two categories of correct summaries:
+
+\begin{itemize}
+    \item Ground truth: A correct summary with no special modifications.
+    \item Synonyms: The ground-truth summary replacing some words with synonyms.
+\end{itemize}
+
+Nevertheless, special focus was placed on incorrect summaries, creating a greater number of categories for it:
+
+\begin{itemize}
+    \item Unrelated: A summary that doesn't correspond with the original text.
+    \item Nonsensical: A summary that is related to original text but makes no sense semantically.
+    \item Keywords: A summary that includes a lot of words from the original text, but misses the point of it.
+    \item Bad grammar: A summary that could be appropriate but contains several grammar mistakes.
+    \item Negations: A correct summary but negated, so that it conveys the opposite meaning.
+\end{itemize}
+
+The results are presented in table \ref{table:ourDatasetResults}. Our discriminator models perform very well with correct summaries, capturing semantics better than the Rouge metrics, which suffer a score drop on the synonym summaries. However, some of the categories (e.g., bad grammar or negations) seems to be especially conflicting for our models, reporting high scores incorrectly. We believe this stems from the fact that pre-trained models are not well suited to detect dissimilarity between opposite sentences, most likely due to the lack of this kind of sentences in their training sets. To alleviate this we could further fine-tune our models to detect these nuances. Contrastive training could also be applied here.
+
+\begin{table*}
+\small
+\centering
+\begin{tabular}{llccccccc}
+\hline
+ &  & \textbf{MPNet v2} & \textbf{Bart base}  & \textbf{DB enc.} & \textbf{DB enc.+aug.} & \textbf{Rouge-1} & \textbf{Rouge-2} & \textbf{Rouge-L} \\
+\hline
+\\
+\multirow{2}{*}{\textbf{Good Summ.}} & \multicolumn{1}{|l}{Ground Truth} & $0.96$ & $0.95$ & $0.93$ & $0.95$ & $0.88$ & $0.64$ & $0.78$ \\
+		& \multicolumn{1}{|l}{Synonyms} & $0.96$ & $0.92$ & $0.94$ & $0.95$ & $0.70$ & $0.38$ & $0.56$ \\
+\\
+\multirow{5}{*}{\textbf{Bad Summ.}}	& \multicolumn{1}{|l}{Unrelated} & $0.10$ & $0.21$ & $0.35$ & $0.38$ & $0.26$ & $0.01$ & $0.18$ \\
+		& \multicolumn{1}{|l}{Nonsensical} & $0.85$ & $0.82$ & $0.89$ & $0.51$ & $0.84$ & $0.21$ & $0.51$ \\
+		& \multicolumn{1}{|l}{Keywords} & $0.41$ & $0.63$ & $0.63$ & $0.61$ & $0.68$ & $0.24$ & $0.58$ \\
+		& \multicolumn{1}{|l}{Bad grammar} & $0.96$ & $0.91$ & $0.93$ & $0.69$ & $0.82$ & $0.48$ & $0.69$ \\
+		& \multicolumn{1}{|l}{Negations} & $0.94$ & $0.92$ & $0.91$ & $0.91$ & $0.68$ & $0.41$ & $0.59$ \\
+\\
+\hline
+\end{tabular}
+\caption{\label{table:ourDatasetResults}
+Results of the different metrics on our dataset.
+}
+\end{table*}
+
+\subsection{GAN Pipeline}
+
+As we mentioned previously, the two goals of our pipeline were training a good evaluator model (the discriminator), but also being able to train an abstractive summarizer (the generator). Regarding the later, we were able to integrate the discriminator and generator together into a unified pipeline.
+
+Nonetheless, the trainings performed so far have not been able to improve on the pre-trained baseline, having encountered two main problems. The first of them is related to time constraints. On a 16 GB GPU, running a single iteration takes 1 day. The second -- the GAN loop is slightly unstable, which also complicates training. Because of this, the discriminator is very fast in figuring out how the generator creates summaries, so training for a whole epoch makes it completely outperform the generator.
+
+%------------------------------------------------------------------------------------------%
+
+\section{Discussion} \label{Discussion}
+
+\subsection{Future research}
+
+More data, bigger GPU, more data => coherence, consistency, fluency, relevance correlation as in table 2 of \cite{fabbri2021summeval}.
+
+
+%------------------------------------------------------------------------------------------%
+
+\section{Conclusion} \label{Conclusion}
+
+
+\begin{algorithm}[]
+ \KwData{ Batch of original texts and summaries}
+ \KwResult{ Loss }
+ initialization\;
+ $texts, summaries \leftarrow batch$
+ $e_t, e_s = D(texts), D(summaries)$
+ $n_t, n_s = L2_{norm}(e_t), L2_{norm}(e_n)$
+ $enc.out. \leftarrow output.enc.lasthiddenstate$\;
+ \While{True}{
+ $next \leftarrow \underset{token}{\mathrm{argmax}}\, softmax(output.logits)$\;
+  $sequence \leftarrow sequence + next$\;
+  \If{$next$ is $EOStoken$}{
+   break\;
+  }
+  $pastkeys \leftarrow output.pastkeys$\;
+  $output \leftarrow generator(pastkeys, enc.out., seq.)$\;
+ }
+ return $sequence$\;
+ \caption{Summary Inference}
+\end{algorithm}
+
+
+\subsection{Appendices}
+
+Use \verb|\appendix| before any appendix section to switch the section numbering over to letters. See Appendix~\ref{sec:appendix} for an example.
+
+\begin{algorithm}[]
+ \KwData{Original text}
+ \KwResult{ Generated summary }
+ initialization\;
+  $inputIDs \leftarrow tokenize(text)$\;
+ $ pastkeys \leftarrow None$\;
+ $ sequence \leftarrow tensor([SEPtoken])$ \;
+ $output \leftarrow generator(inputIDs, sequence)$\;
+ $enc.out. \leftarrow output.enc.lasthiddenstate$\;
+ \While{True}{
+ $next \leftarrow \underset{token}{\mathrm{argmax}}\, softmax(output.logits)$\;
+  $sequence \leftarrow sequence + next$\;
+  \If{$next$ is $EOStoken$}{
+   break\;
+  }
+  $pastkeys \leftarrow output.pastkeys$\;
+  $output \leftarrow generator(pastkeys, enc.out., seq.)$\;
+ }
+ return $sequence$\;
+ \caption{Summary Inference}
+\end{algorithm}
+
+.... explanation about how the model is more parallelizable given the generating encoder outputs once, etc
+
+%------------------------------------------------------------------------------------------%
+
+\section*{Acknowledgements}
+
+% Includes only your custom bibliography per default. See above for how to include anthology files.
+\bibliography{custom}
+\bibliographystyle{acl_natbib}
+
+\appendix
+
+%------------------------------------------------------------------------------------------%
+
+\section{Example Appendix}
+\label{sec:appendix}
+
+This is an appendix.
+
+\end{document}
