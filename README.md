@@ -49,5 +49,8 @@ July 15-16th, Weekend: Enjoyed a festival and my parents visiting.
 
 July 17th, Monday: Hyperlinked half my resume. Updated LinkedIn. Uploaded and finished AOC2021. Added kaggle bronze notebook to good code.
 
-July 18th, Tuesday: Uploaded NLP project for abstractive summarization.
+July 18th, Tuesday: Uploaded NLP project for abstractive summarization. 
+Uploaded Master Thesis Code.
+Added some scientific writing.
+Added Vesuvius Challenge Training Code.
 Schedule 80.000 hours.
