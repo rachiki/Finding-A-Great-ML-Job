@@ -55,4 +55,7 @@ July 18th, Tuesday: Uploaded NLP project for abstractive summarization.
 Uploaded Master Thesis Code.
 Added some scientific writing.
 Added Vesuvius Challenge Training Code.
+Uploaded and polished some more code examples.
+
+July 19th, Wednesday: 
 Schedule 80.000 hours.
