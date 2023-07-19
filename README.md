@@ -1,5 +1,5 @@
 # Finding-A-Great-ML-Job
-To-Do Lower Priority: Finish Kaggle upload training code vesuvius, Neural Style Transfer
+To-Do Lower Priority: Finish Kaggle upload training code vesuvius, Neural Style Transfer, Presentation Thesis, Recommendation letters, 
 
 After finishing my master I did a few months of Kaggle challenges and now want to find a cool ML job. Here I document this process daily. 
 The goal is to keep myself accountable and to help other people in their journey. Also I can link to this repository, maybe there's some cool stuff in here later that recruiters like.
