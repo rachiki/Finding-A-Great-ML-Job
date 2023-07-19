@@ -61,5 +61,7 @@ July 19th, Wednesday:
 Finished linking and updating TOEFL, 
 added link to Bachelor distribution,
 added and linked workera skill assessment to cv,
-added thesis
+added thesis,
+wrote for recommendation letters,
+finished cv,
 Schedule 80.000 hours.
