@@ -1,5 +1,5 @@
 # Finding-A-Great-ML-Job
-To-Do Lower Priority: Finish Kaggle upload training code vesuvius
+To-Do Lower Priority: Finish Kaggle upload training code vesuvius, Neural Style Transfer
 
 After finishing my master I did a few months of Kaggle challenges and now want to find a cool ML job. Here I document this process daily. 
 The goal is to keep myself accountable and to help other people in their journey. Also I can link to this repository, maybe there's some cool stuff in here later that recruiters like.
@@ -58,4 +58,7 @@ Added Vesuvius Challenge Training Code.
 Uploaded and polished some more code examples.
 
 July 19th, Wednesday: 
+Finished linking and updating TOEFL, 
+added link to Bachelor distribution,
+added and linked workera skill assessment to cv,
 Schedule 80.000 hours.
