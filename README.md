@@ -64,4 +64,8 @@ added and linked workera skill assessment to cv,
 added thesis,
 wrote for recommendation letters,
 finished cv,
+
+July 20th, Thursday: 
+Send first 2 applications to NVIDIA and Renaissance Technologies.
+Looked for H1B Visa for USA as software engineer salary is much higher there. Apparently you need a company to sponsor you, lots of time and luck (lottery).
 Schedule 80.000 hours.
