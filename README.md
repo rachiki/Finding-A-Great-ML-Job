@@ -70,7 +70,7 @@ Send first 2 applications to NVIDIA and Renaissance Technologies.
 Looked for H1B Visa for USA as software engineer salary is much higher there. Apparently you need a company to sponsor you, lots of time and luck (lottery).
 Read first half of 80.000 hours career guide.
 
-July 21th, Thursday: 
+July 21th, Friday: 
 Read more into 80.000 hours career guide.
 Schedule 80.000 hours.
 Leave early for Dodgeball weekend.
