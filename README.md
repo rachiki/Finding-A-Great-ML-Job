@@ -74,3 +74,16 @@ July 21th, Friday:
 Read more into 80.000 hours career guide.
 Schedule 80.000 hours.
 Leave early for Dodgeball weekend.
+
+July 22-23rd, Weekend:
+Dodgeball tournament.
+
+July 24th, Monday:
+Relaxed mostly today
+
+July 25th, Tuesday:
+Worked on one more kaggle challenge (HubMAP, Instance Segmentation for blood vessels in liver tissue).
+
+July 26th, Wednesday:
+Finished career guide and summarized.
+
