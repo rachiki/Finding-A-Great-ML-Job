@@ -85,5 +85,5 @@ July 25th, Tuesday:
 Worked on one more kaggle challenge (HubMAP, Instance Segmentation for blood vessels in liver tissue).
 
 July 26th, Wednesday:
-Finished career guide and summarized.
+Finished career guide and summarized. At this point I want to really recommend 80.000 hours again. They offer the best and most comprehensive resource for career advice I know and also have a large section informing about which careers might have a great positive impact on the world.
 
