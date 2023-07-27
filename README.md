@@ -72,7 +72,6 @@ Read first half of 80.000 hours career guide.
 
 July 21th, Friday: 
 Read more into 80.000 hours career guide.
-Schedule 80.000 hours.
 Leave early for Dodgeball weekend.
 
 July 22-23rd, Weekend:
@@ -86,5 +85,8 @@ Worked on one more kaggle challenge (HubMAP, Instance Segmentation for blood ves
 
 July 26th, Wednesday:
 Finished career guide and summarized. At this point I want to highly recommend 80.000 hours. They offer the best and most comprehensive resource for career advice I know and also have a large section informing about which careers might have a great positive impact on the world.
+
+July 26th, Wednesday:
+Schedule 80.000 hours. Meeting read many additional articles and summarized them. Worked on HubMAP
 
 
