@@ -86,7 +86,10 @@ Worked on one more kaggle challenge (HubMAP, Instance Segmentation for blood ves
 July 26th, Wednesday:
 Finished career guide and summarized. At this point I want to highly recommend 80.000 hours. They offer the best and most comprehensive resource for career advice I know and also have a large section informing about which careers might have a great positive impact on the world.
 
-July 26th, Wednesday:
+July 27th, Thursday:
 Schedule 80.000 hours. Meeting read many additional articles and summarized them. Worked on HubMAP
+
+August 2nd, Wednesday:
+80.000 hours career advice with Sudhanshu Kasewa.
 
 
