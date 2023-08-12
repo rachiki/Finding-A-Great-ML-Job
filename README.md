@@ -96,6 +96,9 @@ August 3rd-10th, Thursday:
 Started working on a final Kaggle challenge to achieve a competition expert ranking, "Google Research - Identify Contrails to Reduce Global Warming". It is only 1 week till competition end but I'm fairly certain that I can achieve a good ranking here, based on my experience with semantic segmentation and my available compute.
 => Finished with rank 73/954, achieving competition expert rank!
 
+August 8th, Tuesday:
+Call with best-profile.eu, recruiters. They pitched an interesting company.
+
 August 11th, Friday:
 1 day break after finishing the competition.
 
