@@ -97,7 +97,7 @@ Started working on a final Kaggle challenge to achieve a competition expert rank
 => Finished with rank 73/954, achieving competition expert rank!
 
 August 11th, Friday:
-Break after the stressful competition.
+1 day break after finishing the competition.
 
 August 12th, Saturday:
 Send out some applications and finished skill assessment.
