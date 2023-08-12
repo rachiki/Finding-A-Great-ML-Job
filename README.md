@@ -89,10 +89,13 @@ Finished career guide and summarized. At this point I want to highly recommend 8
 July 27th, Thursday:
 Schedule 80.000 hours. Meeting read many additional articles and summarized them. Worked on HubMAP
 
+July 28th-1st, Friday-Tuesday:
+Worked on HubMAP kaggle challenge, planned too little time for this competition. Set up a good pipeline but had no time left to train models and verify => Plan at least 1 week for challenges I know well in the future and 2 weeks for stuff I know less well.
+
 August 2nd, Wednesday:
 80.000 hours career advice with Sudhanshu Kasewa.
 
-August 3rd-10th, Thursday:
+August 3rd-10th, Thursday-Thursday:
 Started working on a final Kaggle challenge to achieve a competition expert ranking, "Google Research - Identify Contrails to Reduce Global Warming". It is only 1 week till competition end but I'm fairly certain that I can achieve a good ranking here, based on my experience with semantic segmentation and my available compute.
 => Finished with rank 73/954, achieving competition expert rank!
 
