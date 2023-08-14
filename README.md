@@ -108,3 +108,9 @@ August 11th, Friday:
 August 12th, Saturday:
 Send out some applications and finished skill assessment.
 
+Augst 13th, Sunday:
+Relaxed
+
+August 14th, Monday:
+Send out more applications.
+
