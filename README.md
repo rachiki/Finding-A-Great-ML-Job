@@ -114,3 +114,6 @@ Relaxed
 August 14th, Monday:
 Send out more applications.
 
+August 15th, Tuesday:
+Send out more applications. Final registration for EAGx Berlin. Send out skill assesment to a recruiter.
+
