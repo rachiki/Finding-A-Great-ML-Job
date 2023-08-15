@@ -1,6 +1,6 @@
 # Polished Code
-This folder contains examples of code.
-Some are copied from other projects, not all are polished in the sense of highly readable, some like the AOC21 collection are very compact / algorithmically nice.
+This folder contains examples of code, some being copied from other projects. 
+Not all are polished in the sense of highly readable, some like the AOC21 collection are very compact / algorithmically nice.
 
 A few examples that are online are linked:
 
