@@ -129,4 +129,8 @@ Rested.
 August 20th, Sunday:
 I started gathering the code and documents I used for "Google Research - Identify Contrails to Reduce Global Warming". I want to upload this here to have a clean project I can refer to.
 
+August 23th Wednesday:
+Finished Project Writeup
 
+August 24th Thursday:
+Started writing applications full time.
