@@ -134,3 +134,6 @@ Finished Project Writeup
 
 August 24th Thursday:
 Started writing applications full time.
+
+September 6th-11th Wednesday-Monday:
+Went to Berlin to attend EAGx Berlin, networking and looking for job opportunities as part of the reason for attending. Found a few options.
