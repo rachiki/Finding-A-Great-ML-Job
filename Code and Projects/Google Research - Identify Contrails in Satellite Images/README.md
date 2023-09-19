@@ -5,7 +5,7 @@ This was a 3-month-long Kaggle competition hosted by Google Research ([link](htt
 
 The results were evaluated by comparing pixel predictions on a hidden test set, with the predictions of the uploaded model. The ensemble of ML models I submitted scored 0.685, securing place 73 out of 954. The winner scored 0.724. The top 6 teams were awarded a total of $50,000 in prize money.
 
-Due to the substantial size of the original dataset (450 GB) and the models I submitted (around 7 GB), I have uploaded the code segments on Kaggle. There, you can not only inspect the code but also run it without downloading all of this data. I also linked all relevant resources like the paper preprint and RGB recipes for satellite images. This is why this folder only contains the README
+Due to the substantial size of the original dataset (450 GB) and the models I submitted (around 7 GB), I have uploaded the code segments on Kaggle. There, you can not only inspect the code but also run it without downloading all of this data. I also linked all relevant resources like the paper preprint and RGB recipes for satellite images. This is why this folder only contains the README.
 
 # Project Timeline and Competition Details.
 The competition spanned 3 months, but I joined during the final week, necessitating a sharp focus on efficiently utilizing my time. 
